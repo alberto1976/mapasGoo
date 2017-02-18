@@ -17,7 +17,8 @@ Ant <- Ins20171 %>% filter(ASP_DEPARTAMENTORESIDENCIA == "ANTIOQUIA") %>%
   select(ASP_CIUDADRESIDENCIA, LONGITUD_CIUDADRESIDENCIA, LATITUD_CIUDADRESIDENCIA) %>%
   group_by(ASP_CIUDADRESIDENCIA) %>%
   summarise(Long = max(LONGITUD_CIUDADRESIDENCIA), Lat = max(LATITUD_CIUDADRESIDENCIA), Total = n()) %>%
-  mutate(LatLong = paste(Lat, Long, sep=":"), Descrip = paste("<strong>","Total Inscritos",ASP_CIUDADRESIDENCIA,"</strong>","<BR>",paste("<strong>","<font color='red'>",Total,"</font>","</strong>")))
+  mutate(LatLong = paste(Lat, Long, sep=":"), 
+  Descrip = paste("<strong>","Total Inscritos",ASP_CIUDADRESIDENCIA,"</strong>","<BR>",paste("<strong>","<font color='red'>",Total,"</font>","</strong>")))
 
 # Creación de mapa en googleVis (función gvisMap)
 mapa <- gvisMap(Ant, "LatLong" ,"Descrip",
