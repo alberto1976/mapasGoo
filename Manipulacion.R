@@ -28,13 +28,15 @@ iris6 <- summarise(iris5, Media1 = mean(Sepal.Length), Media2 = mean(Nueva))
 iris7 <- group_by(iris5, Species)
 iris8 <- summarise(iris7, Media1 = mean(Sepal.Length), Media2 = mean(Nueva))
 
-# Operador %>%
+# Operador pipe (%>%)
 
 iris %>% select(Sepal.Length, Species) %>% 
   mutate(Nueva = Sepal.Length / 10) %>% 
   filter(Species %in% c("setosa", "virginica")) %>% 
   group_by(Species) %>% 
-  summarise(Media1 = mean(Sepal.Length), Media2 = mean(Nueva)) %>% 
+  summarise(Total = n(), Media1 = mean(Sepal.Length), Media2 = mean(Nueva), 
+            Cuartil1 = quantile(Sepal.Length, c(0.25)), Rango = IQR(Sepal.Length),
+            Cuartil3 = quantile(Sepal.Length, c(0.75))) %>% 
   arrange(Media2)
   
   
