@@ -38,6 +38,12 @@ iris %>% select(Sepal.Length, Species) %>%
             Cuartil1 = quantile(Sepal.Length, c(0.25)), Rango = IQR(Sepal.Length),
             Cuartil3 = quantile(Sepal.Length, c(0.75))) %>% 
   arrange(Media2)
+
+# Nuevo grafico
+
+iris %>% filter(Species %in% c("setosa", "virginica"))
+
+
   
   
   
