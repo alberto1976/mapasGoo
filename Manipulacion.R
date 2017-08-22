@@ -43,7 +43,7 @@ iris %>% select(Sepal.Length, Species) %>%
 
 iris %>% filter(Species %in% c("setosa", "virginica"))
 
-# Tabla DT
+# Comentario
   
   
   
